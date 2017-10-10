@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1472646293_377639.css">
+	<script src="js/jquery.js"></script>
+	<style type="text/css">
+		body{
+			/*background: -webkit-linear-gradient(  ,#5621b8 0%,#781fa3 50%,#bc24b7 90%)*/
+			background: -webkit-linear-gradient( right, #bc24b7 30%,#781fa3 50% ,#5621b8 80%)
+		}
+		p,ul,li{
+			list-style: none;
+			margin:0;
+			padding: 0; 
+		}
+		#box{
+			width: 1000px;
+			height: 600px;
+			/*border: 1px solid #000;*/
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -300px;
+			margin-left: -500px;
+		}
+		.top{
+			height: 400px;
+		}
+		.pic-b{
+			float: left;
+			position: relative;
+			width: 400px;
+			height: 400px;
+		}
+		.picbg{
+			
+			width: 400px;
+			height: 400px;
+			background: url(img/cd.png) no-repeat center;
+			background-size: 100%;
+			border-radius: 50%;
+			box-shadow: 1px 1px 15px #000;
+			/*animation: active 3s linear infinite  .5s; */
+		}
+		@-webkit-keyframes active{
+			from{
+				-webkit-transform:rotate(0deg);
+			}
+			to{
+				-webkit-transform:rotate(360deg);
+			}
+		}
+		.pic{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left:-100px;
+			margin-top: -100px;
+			background: url(img/img.jpg)no-repeat center;
+			background-size: 100%;
+			border-radius: 50%;
+		}
+		.cdt{
+			position: absolute;
+			top: 0;
+			right: -20px;
+			/*background: url(img/cd_tou.png)no-repeat center;*/
+			transform-origin: 60px 12px;
+			transform: rotate(-21deg);
+			-webkit-transition:all 1s;
+		}
+		.play{
+			margin-top: 100px;
+			width: 500px;
+			float: right;
+			font-family:"微软雅黑";
+			color: #fff;
+			text-align: center; 
+			font-size: 18px;
+		}
+		/*.play2:visited{
+			
+		}*/
+		.pl-c{
+			margin-top: 20px;
+			
+		}
+		.iconfont{
+			color: #fff;
+			cursor: pointer;
+			font-size: 25px;
+		}
+		.pl-c-l{
+			float: left;
+			margin-left: 80px;
+		}
+		.pl-c-r{
+			position: relative;	
+			float: right;
+			margin-right: 80px;
+		}
+		.pl-b{
+			float: left;
+		
+			margin-left: 50px;
+
+		}
+		/*.pl-c-r .icon-1yinpinbofangmin{
+			color：#eee;
+		}*/
+		/*.icon-1yinpinbofangmin:hover .vol{
+			display: block;
+		}*/
+			.vol {
+			display: none;
+		    position: absolute;
+		    width: 8px;
+		    height: 100px;
+		    top: -100px;
+		    left: 70px;
+		    background:  #E2D7D7;
+		    border-radius: 15px;
+		    border: 3px solid #fff;
+		}
+		.vol .vol1{
+			position: absolute;
+		    width: 8px;
+		    height: 50px;
+		    bottom: 0px;
+		    left: 0px;
+		    background:#EF6343;
+		    border-radius: 4px;
+		}
+		.jindu{
+			vertical-align: top;
+			display: inline-block;
+			margin-top: 12px;
+			margin-left: 16px;
+			width: 300px;
+			height: 6px;
+			border-radius: 1px;
+			background: rgba(0,0,0,.4);
+			position: relative;
+			cursor: pointer;
+		}
+		.xxx{
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-radius: 1px;
+			background: #fff;
+			height: 6px;
+		}
+
+		.center{
+			width: 800px;
+			margin: 80px auto;
+			font-family: "微软雅黑"
+
+		}
+		.center li{
+			text-align:center; 
+			width: 162px;
+			/*background:rgba(255,255,255,0.4);*/
+			font-size: 27px;
+			color: #fff;
+			float: left;
+			padding: 5px 5px 0 ;
+			height: 75px;
+			line-height: 40px;
+			margin: 0 10px;
+			border-radius: 8px;
+			/*background: -webkit-linear-gradient(rgba(255,255,255,0.4) 46px,rgba(255,255,255,.1) 46px);*/
+			position: relative;
+			box-shadow: 2px 2px 4px rgba(0,0,0,.3);
+			cursor: pointer;
+		}
+		.center li:hover{
+			/*background: #000;*/
+			-webkit-filter: blur(1px);
+		}
+		.center li:after{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(255,255,255,.3);
+			border-radius: 8px 8px 0 0;
+			width:100%;
+			height: 50%;
+			
+		}
+		.center li p{
+			clear: both;
+			font-size: 12px;
+			line-height: 20px;
+		}
+		.center li b{
+			font-size: 14px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="top">
+		  <div class="pic-b">
+			<div class="picbg">
+				<div class="pic"></div>
+			</div>	
+			<img class="cdt" src="img/cd_tou.png" />
+		</div>
+			<div class="play">
+			  <div class="pl-t">
+				<h1 style="font-size:50px;font-weight:normal">演员</h1>
+				<span style="font-size:24px;">薛之谦</span>&nbsp;
+				<span>专辑：绅士</span>
+			  </div>
+			  <div class="pl-c">
+				   <div class="pl-c-l">
+						 <span class="iconfont icon-back prev"></span>
+						 <span class="iconfont icon-you-copy play2"></span>
+						 <span class="iconfont icon-kuai next"></span>
+					</div>
+					<div class="pl-c-r">
+						<span class="iconfont icon-suijibofang"></span>&nbsp;
+						<span class="iconfont icon-zhongxinbofangicon"></span>&nbsp;
+						<span class="iconfont icon-1yinpinbofangmin"></span>
+						<div class="vol">
+							<div class="vol1"></div>
+						</div>
+					</div>
+					
+					<div class="pl-b">
+					<span class="time" style="font-size: 12px;">
+						<n class="min1">00</n>:<n class="sec1">00</n>/<n class="min2">00</n>:<n class="sec2">00</n> 
+					</span>
+						<div class="jindu">
+							<p class="xxx"></p>
+						</div>
+					</div>
+
+			  </div>
+			</div>
+		</div>
+		<ul class="center">
+			<li>丑八怪<p><b>薛之谦</b><span>专题：绅士</span></p></li>
+			<li>绅士<p><b>薛之谦</b><span>专题：绅士</span></p></li>
+			<li>一半<p><b>薛之谦</b><span>专题：绅士</span></p></li>
+			<li>认真的雪<p><b>薛之谦</b><span>专题：绅士</span></p></li>
+		</ul>
+	</div>
+	<audio src="music/演员 - 薛之谦.mp3" type="audio/mp3" >
+	 <!--  <source > -->
+	</audio>
+	<script>
+		var audio=document.getElementsByTagName('audio')[0]; 
+		var onoff=true;
+		//  点击开关
+		var onoff1=true; //音量开关
+		var jindu;
+		var weizhi;
+		// var weiMin;
+		// var weiSec;
+		 function changeMusicActive(){
+			clearTimeout(t2);
+			rotateClear();
+			$(".play2").removeClass('icon-you-copy');
+			$(".play2").addClass('icon-zantingjian');
+			onoff=false;
+			//延时播放，以让它有重新播放的特效
+			var t2=setTimeout(function(){
+			$(".picbg").css('animation', ' active 3s linear infinite  .5s');
+			$(".cdt").css('transform', 'rotate(0deg)');
+			musicTime();   
+			},500)
+		}
+		function musicStart(){
+			audio.load();
+			audio.play();
+		}
+		function musicTime(){	 
+				var time=null;
+				//歌曲时间
+				 jindu=audio.duration;
+				// var Jin=parseInt(jindu/60)<10 ? "0"+parseInt(jindu/60):parseInt(jindu/60);
+				$('n.min2').text(parseInt(jindu/60));
+				$('n.sec2').text(parseInt(jindu%60));
+				
+			}	
+		function rotateClear(){
+			$(".picbg").css('animation', '');  //清除旋转
+			$(".cdt").css('transform', 'rotate(-21deg)');
+		}
+		var arrmusics=[["music/丑八怪 - 薛之谦.mp3","丑八怪"],["music/绅士 - 薛之谦.mp3","绅士"],["music/一半 - 薛之谦.mp3","一半"],["music/认真的雪 - 薛之谦.mp3","认真的雪"]];
+		
+		var $index=4;
+	$(".center > li").click(function(){
+		//先清除状态
+		changeMusicActive();
+
+		$index=$(this).index();
+		audio.src=arrmusics[$index][0];
+		$("h1").text(arrmusics[$index][1]);
+		musicStart();
+		// musicTime();   //写在这时间读不出来必须延迟等到加载完	
+	})
+	console.log($index);
+	audio.addEventListener('timeupdate',function(){
+		weizhi=audio.currentTime;
+		var weiMin=parseInt(weizhi/60)<10 ? "0"+parseInt(weizhi/60):parseInt(weizhi/60);
+		var  weiSec=parseInt(weizhi%60)<10 ? "0"+parseInt(weizhi%60):parseInt(weizhi%60);
+		$('n.min1').text(weiMin);
+		$('n.sec1').text(weiSec);
+		var percent=audio.currentTime/audio.duration;
+		// console.log(percent)
+		$(".xxx").css('width', 300*percent);
+		if (weizhi>=jindu) {
+			rotateClear();
+			$index++;
+		if ($index>3) $index=0;
+		audio.src=arrmusics[$index][0];
+		$("h1").text(arrmusics[$index][1]);
+		musicStart();
+		changeMusicActive();
+		}
+	})
+	//上一首
+	
+	$(".prev").click(function() {
+		$index--;
+		if ($index<0) $index=3;
+		audio.src=arrmusics[$index][0];
+		$("h1").text(arrmusics[$index][1]);
+		musicStart();
+		changeMusicActive();
+	});
+	//下一首
+	$(".next").click(function() {
+		$index++;
+		if ($index>3) $index=0;
+		audio.src=arrmusics[$index][0];
+		$("h1").text(arrmusics[$index][1]);
+		musicStart();
+		changeMusicActive();
+	});
+    //随机播放键
+    $('.icon-suijibofang').click(function(event) {
+    	$index=Math.floor(Math.random()*4);
+    	audio.src=arrmusics[$index][0];
+    	$("h1").text(arrmusics[$index][1]);
+		musicStart();
+		changeMusicActive();
+    });
+	
+	//进度移动
+	$('.jindu').click(function(ev){
+		ev=ev||event;
+		var jindu_w=ev.clientX-$(".jindu").offset().left;  //offset如有定位的话返回的值为父级，否则相当于y值
+		// console.log(parseInt(jindu_w/300*audio.duration));
+		audio.currentTime=parseInt(jindu_w/300*audio.duration);
+
+	})
+	$(".play2").click(function() {
+		jindu=0;
+		weizhi=0;
+	 	musicTime();
+		
+		if (onoff) {
+			audio.play();
+			// $(this).attr('class', 'iconfont icon-zantingjian play2');  两种换class名的方法
+				$(this).removeClass('icon-you-copy');
+				$(this).addClass('icon-zantingjian');
+				//添加图画旋转
+				$(".picbg").css('animation', ' active 3s linear infinite  .5s');
+				$(".cdt").css('transform', 'rotate(0deg)');
+		}else{
+			audio.pause();
+			$(this).removeClass('icon-zantingjian');
+			$(this).addClass('icon-you-copy');
+			rotateClear();
+		}
+		onoff=!onoff
+	});
+
+	//音量键的设置
+	audio.volume=0.5;
+	var t=null;
+	$(".icon-1yinpinbofangmin").mouseover(function() {
+		$(".vol").show();
+	}).mouseout(function(event) {
+		 t=setTimeout(function(){
+		$(".vol").hide();
+		},1000);
+	});
+	var volpast;
+	$(".icon-1yinpinbofangmin").click(function() {
+		
+		//音量键点击一下静音
+		if (onoff1) {
+			volpast= $(".vol1").css('height');
+			$(this).attr('class', 'iconfont icon-1');
+		audio.volume=0;
+		$(".vol1").css('height', 0);
+		}else{   //再点击一下开音
+			$(this).attr('class', 'iconfont icon-1yinpinbofangmin');
+			audio.volume = parseInt(volpast)/100;
+			console.log(audio.volume);
+			$('.vol1').css('height', volpast);
+		}
+		onoff1=!onoff1;
+	});
+		$(".vol").mouseover(function(){	
+			clearTimeout(t);
+			$(this).show();
+		}).mouseout(function(event) {
+
+			$(this).hide();
+		});
+		//声音大小
+		$(".vol").click(function(ev) {
+			ev=ev||event;
+			var volH=$('.vol').offset().top + 100 - event.clientY
+			$(".vol1").css('height', volH);
+			audio.volume=volH/100;
+		});
+
+		//重播
+		$(".icon-zhongxinbofangicon").click(function(){
+			musicStart();
+		})
+
+	</script>
+</body>
+</html>

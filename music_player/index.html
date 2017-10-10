@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="iconfont.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				-webkit-user-select: none;
+			}
+			
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			i {
+				font-style: normal;
+			}
+			
+			body {
+				background: -webkit-gradient(linear, 0 0, 100% 0, from(#5621B8), to(#BC24B7));
+				background: -webkit-linear-gradient(left, #5621B8, #BC24B7);
+				background: -moz-linear-gradient(left, #5621B8, #BC24B7);
+				background: -o-linear-gradient(left, #5621B8, #BC24B7);
+				width: 100%;
+				height: 100%;
+			}
+			
+			.main{
+				width: 1135px;
+				height: 100%;
+				margin: 0 auto;
+			}
+			.music_player_display {
+				background: url(img/cd.png) no-repeat;
+				background-clip: border-box;
+				background-size: cover;
+				border-radius: 52%;
+				box-shadow: 0px 0 15px 4px black;
+				width: 400px;
+				height: 400px;
+				float: left;
+				position: relative;
+				margin-left: 23px;
+				margin-top: 43px;
+			}
+			
+			.music_player_img {
+				position: absolute;
+				right: -16px;
+				top: 0;
+				transform: rotate(-25deg);
+				transform-origin: 56px 0;
+				transition: all .5s ease-out;
+			}
+			
+			.music_player_img_pause {
+				position: absolute;
+				right: -16px;
+				top: 0;
+				transform: rotate(-25deg);
+				transform-origin: 56px 0;
+				transition: all .5s ease-out;
+			}
+			
+			.music_player_img_active {
+				position: absolute;
+				right: -16px;
+				top: 0;
+				transform-origin: 56px 0;
+				transition: all .5s ease-out;
+				transform: rotate(0deg);
+			}
+			
+			.music_player_icon {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 50%;
+				background: url(img/img.jpg);
+				background-size: contain;
+			}
+			
+			.music_player_icon_pause {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 50%;
+				background: url(img/img.jpg);
+				background-size: contain;
+			}
+			
+			.music_player_icon_active {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				background: url(img/img.jpg);
+				background-size: contain;
+				animation: myfirst 2s linear infinite .5s;
+			}
+			
+			@keyframes myfirst {
+				0% {
+					transform: translate(-50%, -50%) rotate(0deg);
+				}
+				100% {
+					transform: translate(-50%, -50%) rotate(360deg);
+				}
+			}
+			
+			.music_player_date {
+				color: white;
+				display: block;
+				float: right;
+				font-family: 微软雅黑;
+				font-size: 18px;
+				height: 236px;
+				margin-top: 100px;
+				text-align: center;
+				margin-right: 6%;
+				width: 500px;
+				position: relative;
+			}
+			
+			.music_player_date h1 {
+				text-shadow: 0px 0px 6px #4285F4;
+				display: block;
+				font-family: 微软雅黑;
+				font-size: 50px;
+				font-weight: normal;
+				height: 66px;
+				text-align: center;
+			}
+			
+			.sings_btns {
+				height: 80px;
+				width: 100%;
+				text-align: center;
+				float: left;
+				margin-top: 80px;
+				color: white;
+			}
+			
+			.sings_btns h1 {
+				font-weight: normal;
+				font-size: 30px;
+				padding-top: 4px;
+			}
+			
+			.sings_btns span {
+				font-size: 12px;
+			}
+			
+			.sings_btns i {
+				font-style: normal;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			
+			.sings_btn {
+				width: 152px;
+				height: 80px;
+				margin: 0 10px;
+				display: inline-block;
+				border-radius: 10px;
+				box-shadow: 3px 2px 2px 0px #333;
+			}
+			
+			.sings_btn:hover {
+				cursor: pointer;
+				filter: blur(2px);
+				border-radius: 10px;
+			}
+			
+			.sings_btn_tit {
+				height: 50%;
+				background: white;
+				background: rgba(255, 255, 255, 0.5);
+				margin-bottom: 5px;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.audio_control {
+				width: 100%;
+				height: 40%;
+				position: absolute;
+				bottom: 0px;
+				display: block;
+			}
+			
+			.audio_play {
+				width: 86px;
+				height: 28px;
+				float: left;
+				margin-left: 80px;
+				text-align: center;
+			}
+			
+			.audio_control li {
+				display: inline-block;
+				width: 25px;
+				height: 25px;
+				line-height: 25px;
+				font-size: 23px;
+			}
+			
+			.audio_control li:hover {
+				text-shadow: 0px 0px 5px #4285F4;
+				color: #4285F4;
+				cursor: pointer;
+			}
+			
+			.audio_volume {
+				width: 96px;
+				height: 28px;
+				float: right;
+				margin-right: 80px;
+			}
+			
+			.audio_control_bottom {
+				clear: both;
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+				left: 0;
+			}
+			
+			.audio_control_progress {
+				width: 386px;
+				height: 23px;
+				margin-left: 50px;
+				float: left;
+				text-align: left;
+				font-size: 12px;
+				line-height: 23px;
+				margin-top: 20px;
+			}
+			
+			.audio_progress {
+				width: 300px;
+				height: 6px;
+				margin-left: 16px;
+				float: right;
+				margin-top: 8px;
+				background: rgba(0, 0, 0, .4);
+				border-radius: 3px;
+			}
+			
+			.audio_progress_actived {
+				height: 4px;
+				background: #4285F4;
+				box-shadow: 0px 0px 6px 2px #4285F4;
+				border-radius: 0px 2px 2px 0;
+				width: 0px;
+				margin-top: 1px;
+			}
+			
+			.volume {
+				position: relative;
+			}
+			
+			.volume:hover .volume_value {
+				display: block;
+			}
+			
+			.volume_value {
+				display: none;
+				width: 8px;
+				height: 100px;
+				background: #F9FFFF;
+				border: 1px solid white;
+				position: absolute;
+				border-radius: 4px;
+				top: -102px;
+				left: 50%;
+				transform: translate(-50%, 0)
+			}
+			
+			.volume_value_actived {
+				width: 100%;
+				border-radius: 4px;
+				height: 100%;
+				box-shadow: 0px 0px 5px 0px #4285F4;
+				background: #4285F4;
+				position: absolute;
+				bottom: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="music_player_display">
+				<div class="music_player_img">
+					<img src="img/cd_tou.png" />
+				</div>
+				<div class="music_player_icon">
+
+				</div>
+			</div>
+			<div class="music_player_date">
+				<h1>演员</h1>
+				<span>薛之谦</span>
+				<span>专辑：绅士</span>
+				<div class="audio_control">
+					<div class="audio_play">
+						<li class="iconfont back">&#xe650;</li>
+						<li class="iconfont start">&#xe618;</li>
+						<li class="iconfont next">&#xe603;</li>
+					</div>
+					<div class="audio_volume">
+						<li class="iconfont random">&#xe633;</li>
+						<li class="iconfont reset">&#xe690;</li>
+						<li class="iconfont volume">&#xe616;
+							<div class="volume_value">
+								<div class="volume_value_actived">
+
+								</div>
+							</div>
+						</li>
+					</div>
+					<div class="audio_control_progress">
+						<span><i>00:00</i>/<i>00:00</i></span>
+						<div class="audio_progress">
+							<div class="audio_progress_actived">
+
+							</div>
+						</div>
+					</div>
+					<audio class="audio_control_bottom" preload="auto" src="music/演员 - 薛之谦.mp3" type="audio/mp3">
+						该浏览器不支持audio
+					</audio>
+				</div>
+			</div>
+			<div class="sings_btns">
+				<div class="sings_btn">
+					<div class="sings_btn_tit">
+						<h1>丑八怪</h1></div>
+					<span><i>薛之谦</i>专题：绅士</span>
+				</div>
+				<div class="sings_btn">
+					<div class="sings_btn_tit">
+						<h1>绅士</h1></div>
+					<span><i>薛之谦</i>专题：绅士</span>
+				</div>
+				<div class="sings_btn">
+					<div class="sings_btn_tit">
+						<h1>一半</h1></div>
+					<span><i>薛之谦</i>专题：绅士</span>
+				</div>
+				<div class="sings_btn">
+					<div class="sings_btn_tit">
+						<h1>认真的雪</h1></div>
+					<span><i>薛之谦</i>专题：绅士</span>
+				</div>
+			</div>
+		</div>
+		<script src="../../common_js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var audio = $("audio")[0];
+				var music_num = 0;
+				var arrmusics = [
+					["music/丑八怪 - 薛之谦.mp3", "丑八怪"],
+					["music/绅士 - 薛之谦.mp3", "绅士"],
+					["music/一半 - 薛之谦.mp3", "一半"],
+					["music/认真的雪 - 薛之谦.mp3", "认真的雪"]
+				];
+				var timer = null;
+				var pause_sta = false;
+
+				function music_start(music_num) {
+					audio.src = arrmusics[music_num][0];
+				}
+
+				function set_currentTime() {
+					$(".audio_control_progress").find("i:first").text(change_time(audio.currentTime));
+				}
+
+				function set_totalTime() {
+					$(".audio_control_progress").find("i:last").text(change_time(audio.duration));
+				}
+
+				function change_music_tit(titname) {
+					$(".music_player_date").find("h1").text(titname);
+				}
+
+				function change_time(time) {
+					var min = parseInt(time / 60);
+					var min_str = min;
+					var sec = parseInt(time % 60);
+					var sec_str = sec;
+					if(min < 10) {
+						min_str = "0" + min;
+					}
+					if(sec < 10) {
+						sec_str = "0" + sec;
+					}
+					return min_str + ":" + sec_str;
+				}
+
+				function music_play(music_num) {
+					change_music_tit(arrmusics[music_num][1])
+					clearInterval(timer);
+					music_start(music_num);
+					audio.oncanplay = function() {
+						set_currentTime();
+						set_totalTime();
+						audio.ontimeupdate = function() {
+							var percentage = audio.currentTime * 100 / audio.duration;
+							set_currentTime();
+							set_totalTime();
+							if(audio.ended) {
+								music_num = music_num + 1 > 3 ? 0 : music_num + 1;
+								music_play(music_num);
+							}
+							$(".audio_progress_actived").css("width", percentage + "%")
+						}
+					}
+				}
+
+				function first_music_player_display() {
+					if(pause_sta) {
+						log("bofnag")
+						$(".music_player_img").attr("class", " music_player_img music_player_img_active");
+						$(".music_player_icon").attr("class", "music_player_icon_active music_player_icon");
+					} else {
+						log("zanting")
+						$(".music_player_img").attr("class", " music_player_img music_player_img_pause")
+						$(".music_player_icon").attr("class", "music_player_icon_pause music_player_icon")
+					}
+				}
+
+				function tab_music_player_display() {
+					$(".music_player_img").attr("class", " music_player_img music_player_img_pause");
+					$(".music_player_icon").attr("class", "music_player_icon_pause music_player_icon");
+					var tab_timer = setTimeout(function() {
+						$(".music_player_img").attr("class", " music_player_img music_player_img_active");
+						$(".music_player_icon").attr("class", "music_player_icon_active music_player_icon");
+						clearTimeout(tab_timer);
+					}, 500);
+				}
+				music_play(music_num);
+				$(".audio_control").click(function(event) {
+					var target = event.target || event.srcElement;
+					var $target = $(target);
+					if($target.attr("class").indexOf("start") != -1) {
+						if(!pause_sta) {
+							$target.html("&#xe618;");
+							audio.play();
+							pause_sta = true;
+							first_music_player_display();
+						} else {
+							$target.html("&#xe506;");
+							pause_sta = false;
+							audio.pause();
+							first_music_player_display();
+						}
+						return;
+					}
+					if($target.attr("class").indexOf("back") != -1) {
+						music_num = music_num - 1 < 0 ? 3 : music_num - 1;
+						music_play(music_num);
+						audio.play();
+						tab_music_player_display();
+						return;
+					}
+					if($target.attr("class").indexOf("next") != -1) {
+						music_num = music_num + 1 > 3 ? 0 : music_num + 1;
+						music_play(music_num);
+						audio.play();
+						tab_music_player_display();
+						return;
+					}
+					if($target.attr("class").indexOf("random") != -1) {
+						music_num = randomInt(0, 3);
+						music_play(music_num);
+						music_play(music_num);
+						audio.play();
+						tab_music_player_display();
+						return;
+					}
+					if($target.attr("class").indexOf("reset") != -1) {
+						audio.load();
+						return;
+					}
+					if($target.attr("class").indexOf("volume_value") != -1) {
+						log(window.scrollY)
+						var distance = event.clientY + window.scrollY - $(".volume_value").offset().top;
+						log(distance)
+						$(".volume_value_actived").css("height", 100 - distance);
+						audio.volume = (100 - distance) / 100;
+					}
+				});
+				$(".sings_btn").click(function() {
+					music_num = $(this).index();
+					music_play(music_num);
+					audio.play();
+					tab_music_player_display();
+				})
+			})
+		</script>
+	</body>
+
+</html>
